@@ -8,24 +8,29 @@ namespace TorneosITM.Servicios
 {
     public class ServicioTorneo
     {
-        private TorneoITMEntities dbTorneoITM = new TorneoITMEntities();
-
-        public List<Torneo> ObtenerTorneos()
+        private TorneoITMEntities DBTorneoITM = new TorneoITMEntities();
+        
+        public List<Torneo> ObtenerTorneoPorTipo(string tipoTorneo)
         {
-            return dbTorneoITM.Torneos.ToList();
+            return DBTorneoITM.Torneos.Where(t => t.TipoTorneo == tipoTorneo).ToList();
         }
 
-        public Torneo ObtenerTorneo(int idTorneo)
+        public List<Torneo> ObtenerTorneosPorNombre(string nombreTorneo)
         {
-            return dbTorneoITM.Torneos.FirstOrDefault(t => t.idTorneos == idTorneo);
+            return DBTorneoITM.Torneos.Where(t => t.NombreTorneo.Contains(nombreTorneo)).ToList();
+        }
+
+        public List<Torneo> ObtenerTorneosPorFecha(DateTime fechaTorneo)
+        {
+            return DBTorneoITM.Torneos.Where(t => t.FechaTorneo == fechaTorneo).ToList();
         }
 
         public string AgregarTorneo(Torneo torneo)
         {
             try
             {
-                dbTorneoITM.Torneos.Add(torneo);
-                dbTorneoITM.SaveChanges();
+                DBTorneoITM.Torneos.Add(torneo);
+                DBTorneoITM.SaveChanges();
                 return "Torneo agregado correctamente.";
             }
             catch (Exception ex)
@@ -38,7 +43,7 @@ namespace TorneosITM.Servicios
         {
             try
             {
-                Torneo torneoExistente = dbTorneoITM.Torneos.FirstOrDefault(t => t.idTorneos == torneo.idTorneos);
+                Torneo torneoExistente = DBTorneoITM.Torneos.FirstOrDefault(t => t.idTorneos == torneo.idTorneos);
                 if (torneoExistente != null)
                 {
                     torneoExistente.idAdministradorITM = torneo.idAdministradorITM;
@@ -48,7 +53,7 @@ namespace TorneosITM.Servicios
                     torneoExistente.ValorInscripcion = torneo.ValorInscripcion;
                     torneoExistente.FechaTorneo = torneo.FechaTorneo;
                     torneoExistente.Integrantes = torneo.Integrantes;
-                    dbTorneoITM.SaveChanges();
+                    DBTorneoITM.SaveChanges();
                     return "Torneo actualizado correctamente.";
                 }
                 else
@@ -66,11 +71,11 @@ namespace TorneosITM.Servicios
         {
             try
             {
-                Torneo torneo = dbTorneoITM.Torneos.FirstOrDefault(t => t.idTorneos == idTorneo);
+                Torneo torneo = DBTorneoITM.Torneos.FirstOrDefault(t => t.idTorneos == idTorneo);
                 if (torneo != null)
                 {
-                    dbTorneoITM.Torneos.Remove(torneo);
-                    dbTorneoITM.SaveChanges();
+                    DBTorneoITM.Torneos.Remove(torneo);
+                    DBTorneoITM.SaveChanges();
                     return "Torneo eliminado correctamente.";
                 }
                 else

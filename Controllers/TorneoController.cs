@@ -9,23 +9,32 @@ using System.Web.Http;
 namespace ParqueDivITM.Controllers
 {
     [RoutePrefix("api/Torneo")]
+    [Authorize]
     public class TorneoController : ApiController
     {
 
         [HttpGet]
-        [Route("ConsultarTodos")]
-        public List<Torneo> ConsultarTodos()
+        [Route("ConsultarPorTipo")]
+        public List<Torneo> ConsultarTorneoPorTipo(string tipoTorneo)
         {
             ServicioTorneo servicioTorneo = new ServicioTorneo();
-            return servicioTorneo.ObtenerTorneos();
+            return servicioTorneo.ObtenerTorneoPorTipo(tipoTorneo);
         }
 
         [HttpGet]
-        [Route("Consultar/{idTorneo}")]
-        public Torneo Consultar(int idTorneo)
+        [Route("ConsultarPorNombre")]
+        public List<Torneo> ConsultarTorneoPorNombre(string nombreTorneo)
         {
             ServicioTorneo servicioTorneo = new ServicioTorneo();
-            return servicioTorneo.ObtenerTorneo(idTorneo);
+            return servicioTorneo.ObtenerTorneosPorNombre(nombreTorneo);
+        }
+
+        [HttpGet]
+        [Route("ConsultarPorFecha")]
+        public List<Torneo> ConsultarTorneoPorFecha(DateTime fechaTorneo)
+        {
+            ServicioTorneo servicioTorneo = new ServicioTorneo();
+            return servicioTorneo.ObtenerTorneosPorFecha(fechaTorneo);
         }
 
         [HttpPost]
@@ -45,7 +54,7 @@ namespace ParqueDivITM.Controllers
         }
 
         [HttpDelete]
-        [Route("Eliminar/{idTorneo}")]
+        [Route("Eliminar")]
         public string Eliminar(int idTorneo)
         {
             ServicioTorneo servicioTorneo = new ServicioTorneo();
