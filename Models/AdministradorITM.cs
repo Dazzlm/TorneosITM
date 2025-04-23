@@ -9,6 +9,7 @@
 
 namespace TorneosITM.Models
 {
+    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     using Newtonsoft.Json;
@@ -30,6 +31,9 @@ namespace TorneosITM.Models
         [JsonIgnore]
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+
+        [JsonIgnore]
+
         public virtual ICollection<Torneo> Torneos { get; set; }
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using TorneosITM.Servicios;
 
 namespace TorneosITM
 {
@@ -12,6 +13,7 @@ namespace TorneosITM
             // Configuración y servicios de Web API
 
             // Rutas de Web API
+            config.MessageHandlers.Add(new TokenValidationHandler());
             config.MapHttpAttributeRoutes();
 
             config.Routes.MapHttpRoute(

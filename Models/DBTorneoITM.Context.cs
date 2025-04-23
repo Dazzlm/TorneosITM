@@ -9,14 +9,15 @@
 
 namespace TorneosITM.Models
 {
+    using Newtonsoft.Json;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class TorneoITMEntities : DbContext
+    public partial class DBTorneoITMEntities : DbContext
     {
-        public TorneoITMEntities()
-            : base("name=TorneoITMEntities")
+        public DBTorneoITMEntities()
+            : base("name=DBTorneoITMEntities")
         {
         }
     
@@ -24,7 +25,7 @@ namespace TorneosITM.Models
         {
             throw new UnintentionalCodeFirstException();
         }
-    
+       
         public virtual DbSet<AdministradorITM> AdministradorITMs { get; set; }
         public virtual DbSet<Torneo> Torneos { get; set; }
     }

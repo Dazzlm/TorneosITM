@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="TorneoITMModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="DBTorneoITMModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="AdministradorITM">
           <Key>
             <PropertyRef Name="idAministradorITM" />
@@ -40,7 +40,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="TorneoITMModelStoreContainer">
+        <EntityContainer Name="DBTorneoITMModelStoreContainer">
           <EntitySet Name="AdministradorITM" EntityType="Self.AdministradorITM" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Torneos" EntityType="Self.Torneos" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Torneos_AdministradorITM" Association="Self.FK_Torneos_AdministradorITM">
@@ -52,7 +52,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="TorneoITMModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="DBTorneoITMModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="AdministradorITM">
           <Key>
             <PropertyRef Name="idAministradorITM" />
@@ -90,7 +90,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="TorneoITMEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="DBTorneoITMEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="AdministradorITMs" EntityType="Self.AdministradorITM" />
           <EntitySet Name="Torneos" EntityType="Self.Torneo" />
           <AssociationSet Name="FK_Torneos_AdministradorITM" Association="Self.FK_Torneos_AdministradorITM">
@@ -103,9 +103,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="TorneoITMModelStoreContainer" CdmEntityContainer="TorneoITMEntities">
+        <EntityContainerMapping StorageEntityContainer="DBTorneoITMModelStoreContainer" CdmEntityContainer="DBTorneoITMEntities">
           <EntitySetMapping Name="AdministradorITMs">
-            <EntityTypeMapping TypeName="TorneoITMModel.AdministradorITM">
+            <EntityTypeMapping TypeName="DBTorneoITMModel.AdministradorITM">
               <MappingFragment StoreEntitySet="AdministradorITM">
                 <ScalarProperty Name="idAministradorITM" ColumnName="idAministradorITM" />
                 <ScalarProperty Name="Documento" ColumnName="Documento" />
@@ -116,7 +116,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Torneos">
-            <EntityTypeMapping TypeName="TorneoITMModel.Torneo">
+            <EntityTypeMapping TypeName="DBTorneoITMModel.Torneo">
               <MappingFragment StoreEntitySet="Torneos">
                 <ScalarProperty Name="idTorneos" ColumnName="idTorneos" />
                 <ScalarProperty Name="idAdministradorITM" ColumnName="idAdministradorITM" />

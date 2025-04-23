@@ -4,10 +4,10 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="b01c2d0ae06c44c2962f05a923c0bf5f" Name="Diagram1">
-        <EntityTypeShape EntityType="TorneoITMModel.AdministradorITM" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="TorneoITMModel.Torneo" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <AssociationConnector Association="TorneoITMModel.FK_Torneos_AdministradorITM" ManuallyRouted="false" />
+      <Diagram DiagramId="735a6ee2e9a44f299dd0d93025115bbc" Name="Diagram1">
+        <EntityTypeShape EntityType="DBTorneoITMModel.AdministradorITM" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBTorneoITMModel.Torneo" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="DBTorneoITMModel.FK_Torneos_AdministradorITM" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

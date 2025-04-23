@@ -8,14 +8,9 @@ namespace TorneosITM.Servicios
 {
     public class ServicioTorneo
     {
-        private TorneoITMEntities DBTorneoITM = new TorneoITMEntities();
-        
-        public List<Torneo> ObtenerTorneoPorTipo(string tipoTorneo)
-        {
-            return DBTorneoITM.Torneos.Where(t => t.TipoTorneo == tipoTorneo).ToList();
-        }
+        private TorneoITMEntities dbTorneoITM = new TorneoITMEntities();
 
-        public List<Torneo> ObtenerTorneosPorNombre(string nombreTorneo)
+        public List<Torneo> ObtenerTorneos()
         {
             return DBTorneoITM.Torneos.Where(t => t.NombreTorneo.Contains(nombreTorneo)).ToList();
         }
