@@ -9,7 +9,6 @@ using System.Web.Http;
 namespace ParqueDivITM.Controllers
 {
     [RoutePrefix("api/Torneo")]
-    [Authorize]
     public class TorneoController : ApiController
     {
 
