@@ -9,6 +9,7 @@ using System.Web.Http;
 namespace ParqueDivITM.Controllers
 {
     [RoutePrefix("api/Torneo")]
+    [Authorize]
     public class TorneoController : ApiController
     {
 
@@ -17,7 +18,7 @@ namespace ParqueDivITM.Controllers
         public List<Torneo> ConsultarTorneoPorTipo(string tipoTorneo)
         {
             ServicioTorneo servicioTorneo = new ServicioTorneo();
-            return servicioTorneo.ObtenerTorneoPorTipo(tipoTorneo);
+            return servicioTorneo.ObtenerTorneosPorTipo(tipoTorneo);
         }
 
         [HttpGet]

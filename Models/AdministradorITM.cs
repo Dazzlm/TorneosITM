@@ -28,7 +28,7 @@ namespace TorneosITM.Models
         public string NombreCompleto { get; set; }
         public string Usuario { get; set; }
         public string Clave { get; set; }
-        [JsonIgnore]
+     
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
 
